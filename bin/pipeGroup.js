@@ -6,7 +6,7 @@ class PipeGroup {
     // Returns the closest pipe that hasn't yet passed the bird group
     getClosest() {
         for (let pipe of this.pipes) {
-            if (pipe.x + pipe.WIDTH > birds.getX() - birds.getWidth()) {
+            if (pipe.x + pipe.WIDTH > population.getX() - population.getWidth()) {
                 return pipe;
             }
         }
@@ -36,7 +36,7 @@ class PipeGroup {
             // Deletes pipe if it goes offscreen
             if (this.pipes[i].offscreen()) this.pipes.splice(i, 1);
             // Collision
-            birds.collide(this.pipes[i]);
+            population.collide(this.pipes[i]);
         }
     }
 }

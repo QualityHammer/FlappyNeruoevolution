@@ -1,4 +1,4 @@
-let birds;
+let population;
 let pipes;
 let score;
 let back, ground, pipe_img, bird_down, bird_mid, bird_up;
@@ -14,7 +14,7 @@ let counter = 0;
 let graph;
 
 function serialize() {
-    birds.serializeBest();
+    population.serializeBest();
 }
 
 
@@ -58,7 +58,7 @@ let cnv1 = function (p) {
         // Game objects
         score = new Score();
         pipes = new PipeGroup();
-        birds = new BirdPopulation();
+        population = new BirdPopulation();
         saveButt.mousePressed(serialize);
     }
 
@@ -70,7 +70,7 @@ let cnv1 = function (p) {
         // Logic
         for (let i = 0; i < cycles; i++) {
             pipes.update();
-            birds.update();
+            population.update();
             score.update();
             counter++;
         }
@@ -78,7 +78,7 @@ let cnv1 = function (p) {
         p.image(back, 0, 0, p.width, p.height);
         pipes.show();
         p.image(ground, 0, p.height - GROUND_HEIGHT, p.width, GROUND_HEIGHT);
-        birds.show();
+        population.show();
         score.show();
     }
 }

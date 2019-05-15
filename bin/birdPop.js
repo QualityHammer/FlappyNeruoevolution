@@ -70,16 +70,6 @@ class BirdPopulation extends Population {
         }
     }
 
-    // Gets the pipe values and makes each bird think
-    think() {
-        let vals = pipes.getValues();
-        for (let mem of this.pop) {
-            if (!mem.dead) {
-                mem.think(vals);
-            }
-        }
-    }
-
     update() {
         for (let mem of this.pop) {
             mem.setInputs(pipes.getValues());
