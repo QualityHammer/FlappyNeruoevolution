@@ -4,18 +4,12 @@ let score;
 let back, ground, pipe_img, bird_down, bird_mid, bird_up;
 let sp0, sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9;
 const GROUND_HEIGHT = 100;
-const POP_SIZE = 100;
 
-let net;
 let speedSlider;
 let span;
 let saveButt;
 let counter = 0;
 let graph;
-
-function serialize() {
-    population.serializeBest();
-}
 
 
 // Main canvas
@@ -48,7 +42,6 @@ let cnv1 = function (p) {
 
     p.setup = function() {
         p.createCanvas(600, 800);
-        net = new NeuralNetwork(5, 5, 1);
 
         // Interfaces
         speedSlider = p.select('#speed-slider');
@@ -59,7 +52,7 @@ let cnv1 = function (p) {
         score = new Score();
         pipes = new PipeGroup();
         population = new BirdPopulation();
-        saveButt.mousePressed(serialize);
+        saveButt.mousePressed(serial);
     }
 
     p.draw = function() {

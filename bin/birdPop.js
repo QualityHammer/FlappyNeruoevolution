@@ -20,7 +20,7 @@ class BirdPopulation extends Population {
         }
     }
 
-    // Returns the best bird in the alive population
+    // Returns the best bird in the alive population (any bird that is still alive is the best as they all share a score)
     getBestCurrent() {
         if (this.pop.length > 0) {
             for (let mem of this.pop) {
@@ -42,6 +42,7 @@ class BirdPopulation extends Population {
         }
     }
 
+    // Resets everything and sets the fitness values of all the birds and then calls new generation
     newGeneration() {
         // Set fitness
         this.setAllFitness();
@@ -50,6 +51,7 @@ class BirdPopulation extends Population {
         super.newGeneration();
     }
 
+    // Resets the score and pipes and then creates a new viewing generation
     newViewingGeneration() {
         // Reset
         this.reset();
@@ -70,6 +72,7 @@ class BirdPopulation extends Population {
         }
     }
 
+    // Gets the pipe values and then updates the population
     update() {
         for (let mem of this.pop) {
             mem.setInputs(pipes.getValues());
