@@ -80,4 +80,4 @@ let cnv1 = function (p) {
     }
 }
 
-let myp5 = new p5(cnv1, 'sketch');
+let mp = new p5(cnv1, 'sketch');
